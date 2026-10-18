@@ -82,7 +82,7 @@ class EditorObjectManagerModule : Managed
 				
 				EditorPlaceableItem placeable_item = EditorPlaceableItem.Create(path, type, scope);
 				// set all classed objects with dz model to console friendly - p3ds handled below 
-				placeable_item.ConsoleFriendly = model.IndexOf("dz" + SystemPath.SEPERATOR) == 0;
+				placeable_item.ConsoleFriendly = model.IndexOf("dz" + SystemPath.SEPERATOR) == 0 && !type_lower.Contains("bldr_"); // and stop bldr sneaking in
 				if (type_lower.Contains("land_") || type_lower.Contains("staticobj_")) {
 					placeable_item.Scope = 2;
 				}
